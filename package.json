@@ -13,6 +13,7 @@
     "build": "cd ui5-app && yarn build",
     "clean": "cd ui5-app && yarn clean",
     "dev": "cd ui5-app && yarn dev",
+    "deploy": "cd cap && cds deploy",
     "dev:cap": "cd ui5-app && yarn dev:cap",
     "start": "cd ui5-app && yarn start",
     "test:api": "cd ui5-app/webapp/test/api && uiveri5 --browsers=chromeHeadless",
