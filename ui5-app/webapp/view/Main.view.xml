@@ -1,0 +1,78 @@
+<mvc:View controllerName="test.Sample.controller.Main" 
+	displayBlock="true" 
+	xmlns="sap.m" 
+	xmlns:core="sap.ui.core" 
+	xmlns:l="sap.ui.layout" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns:u="sap.ui.unified" 
+	xmlns:s="test.Sample.control">
+	<Page title="{i18n>appTitle}">
+		<headerContent>
+			<core:Icon color="#1873B4" 
+				src="sap-icon://sap-ui5" 
+				size="2rem" />
+			<Text text="{LatestUI5>/latest}" />
+		</headerContent>
+		<content>
+			<l:BlockLayout background="Light">
+				<l:BlockLayoutRow>
+					<l:BlockLayoutCell>
+						<Title level="H1" 
+							titleStyle="H1" 
+							text="{i18n>startPage.title.text}" 
+							width="100%" 
+							textAlign="Center" />
+					</l:BlockLayoutCell>
+				</l:BlockLayoutRow>
+				<l:BlockLayoutRow>
+					<l:BlockLayoutCell width="2">
+						<VBox width="100%" 
+							alignItems="Center">
+							<s:FileUploaderV4 id="FileUploader" 
+								useMultipart="false" 
+								uploadUrl="/cap/dumpster/Items" 
+								uploadComplete="onUploadComplete" />
+							<Button text="{i18n>startPage.uploadButton.text}" 
+								id="UploadButton" 
+								press="handleUploadPress" />
+						</VBox>
+					</l:BlockLayoutCell>
+				</l:BlockLayoutRow>
+				<l:BlockLayoutRow>
+					<l:BlockLayoutCell>
+						<List id="ListOfItems" 
+							headerText="{i18n>startpage.list.headerText}" 
+							items="{Backend>/Items}">
+							<items>
+								<CustomListItem>
+									<HBox>
+										<core:Icon size="2rem" 
+											src="sap-icon://attachment-photo" 
+											class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" />
+										<VBox class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom">
+											<Link text="{Backend>name} ({Backend>ID})" 
+												target="{ProductPicUrl}" 
+												press="onMediaPress(${Backend>ID})" />
+											<Label text="{Backend>size} bytes - {Backend>fileLastModified}" />
+										</VBox>
+									</HBox>
+								</CustomListItem>
+							</items>
+						</List>
+					</l:BlockLayoutCell>
+					<l:BlockLayoutCell>
+						<VBox>
+							<Text text="preview" 
+								class="sapUiSmallMarginBottom" />
+							<Image id="PreviewImage" 
+								src="{PreviewImg>/imgSrc}" 
+								decorative="false" />
+						</VBox>
+					</l:BlockLayoutCell>
+				</l:BlockLayoutRow>
+
+			</l:BlockLayout>
+		</content>
+	</Page>
+
+</mvc:View>

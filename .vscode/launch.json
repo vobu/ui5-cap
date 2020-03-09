@@ -1,0 +1,51 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Debug e2e tests",
+            "program": "${workspaceFolder}/node_modules/@ui5/uiveri5/src/cli.js",
+            "cwd": "${workspaceFolder}/packages/ui5-app/webapp/test/e2e",
+            "args": [
+               "conf.js"
+            ]
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Debug CAP with Chrome",
+            "url": "http://localhost:4081",
+            "webRoot": "${workspaceFolder}/packages/ui5-app/webapp",
+            "disableNetworkCache": true,
+            "showAsyncStacks": true,
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Debug with Chrome",
+            "url": "http://localhost:1081",
+            "webRoot": "${workspaceFolder}/packages/ui5-app/webapp",
+            "sourceMaps": true,
+            "disableNetworkCache": true,
+            "showAsyncStacks": true,
+            "preLaunchTask": "yarn-debug",
+            "postDebugTask": "postdebug-kill"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Debug Middlewares",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": [
+                "run-script",
+                "debug"
+            ],
+            "cwd": "${workspaceFolder}/packages/ui5-app",
+            "port": 9229
+        }
+    ]
+}

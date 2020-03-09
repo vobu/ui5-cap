@@ -1,0 +1,25 @@
+@host = http://localhost:4004
+@uuid = da07ae51-d0d3-41e7-a737-2555a213e5a9
+
+###
+{{host}}/dumpster/Items
+###
+POST {{host}}/dumpster/Items
+Accept: application/json
+Content-Type: application/json
+
+{ 
+  "ID": "da07ae51-d0d3-41e7-a737-2555a213e5a9",
+  "mediatype": "image/png"
+}
+
+### Upload Binary
+# curl -X PUT "http://localhost:4004/media/Pictures(da07ae51-d0d3-41e7-a737-2555a213e5a9)/content" -H "image/png" --data-binary @./srv/tests/Test.png
+PUT {{host}}/dumpster/Items({{uuid}})/content
+Content-Type: image/png
+
+< ./Test.png
+
+###
+
+DELETE {{host}}/dumpster/Items({{uuid}})

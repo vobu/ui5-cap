@@ -1,0 +1,25 @@
+{
+  "name": "ui5-cap",
+  "version": "0.0.1",
+  "description": "showcase ui5-tooling + cap + testing",
+  "private": true,
+  "author": "Volker Buzek",
+  "license": "derived Beer-Ware",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vobu/ui5-cap.git"
+  },
+  "scripts": {
+    "build": "cd ui5-app && yarn build",
+    "clean": "cd ui5-app && yarn clean",
+    "dev": "cd ui5-app && yarn dev",
+    "dev:cap": "cd ui5-app && yarn dev:cap",
+    "start": "cd ui5-app && yarn start",
+    "test:api": "cd ui5-app/webapp/test/api && uiveri5 --browsers=chromeHeadless",
+    "test:e2e": "cd ui5-app/webapp/test/e2e && uiveri5 --browsers=chrome"
+  },
+  "workspaces": [
+    "ui5-app",
+    "cap"
+  ]
+}
